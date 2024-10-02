@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Picker</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: rgba(242, 8, 8, 0.8);
+            font-family: "Montserrat";
+        }
+
+        .color {
+            margin-top: 300px;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hex{
+            margin: 20px;
+            display: block;
+            color: white;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        .color button {
+            background: none;
+            outline: none;
+            color: white;
+            border: 3px solid white;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="color">
+        <span id="hex">#ade700</span>
+        <button onclick="getNewColor()">Get New Color</button>
+    </div>
+
+    <script type="text/javascript">
+
+        function getNewColor() {
+            let symbols,color;
+            symbols = "0123456789ABCDEF";
+
+            color = "#";
+            for(let i=0; i<6; i++){
+                color = color + symbols[Math.floor(Math.random() * 16)]
+            }
+            document.body.style.background = color;
+            document.getElementById("hex").innerHTML = color
+        }
+    </script>
+</body>
+
+</html>

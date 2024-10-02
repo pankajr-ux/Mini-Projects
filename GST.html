@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator Demo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            /* background: rgb(8,39,141); */
+            background: linear-gradient(90deg, rgba(8,39,141,1) 0%, rgba(0,212,255,1) 100%);
+            padding: 40px;
+        }
+
+        .gst-box {
+        margin: 30px;
+            font-size: 22px;
+            font-weight: 600;
+            width: auto;
+            height: auto;
+            border: 2px solid black;
+            border-radius: 7px 50px;
+            padding: 20px 30px;
+            background: linear-gradient(90deg, rgba(203,243,10,1) 0%, rgba(83,255,0,1) 100%);
+        }
+
+        .gst-box:hover {
+
+            box-shadow: 10px 10px #0f0f0f;
+            transition: 0.3s;
+        }
+
+        .input {
+
+            letter-spacing: 5px;
+            margin: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            border-radius: 50px;
+            font-weight: 800;
+        }
+
+        .btn {
+            text-transform: uppercase;
+            background-color: #fff;
+            color: #e02a0e;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-weight: 800;
+
+        }
+
+        .btn:hover {
+
+            box-shadow: 5px 5px #0f0f0f;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <center>
+            <h1>GST Calculator</h1>
+
+            <div class="gst-box">
+                <label for="">Price : </label>
+                <input class="input" type="number" id="product_price">
+                <br>
+                <label for="">GST Tax (%) : </label>
+                <input class="input" type="number" id="tax">
+                <br>
+                <button class="btn" onclick="calculateGST()">Calculate</button>
+                <br>
+                <label for="">Final Price : </label>
+                <span id="final_price">00</span>
+
+            </div>
+        </center>
+    </div>
+
+
+    <script>
+
+        function calculateGST() {
+            let product_price = document.getElementById("product_price").value;
+            let tax = document.getElementById("tax").value;
+
+            let final_price = parseInt(product_price) + parseInt(product_price) * tax / 100;
+            
+             if(!(final_price>0)) final_price=0
+                document.getElementById("final_price").innerHTML = final_price
+            
+            //    alert(final_price);
+
+           
+        }
+
+        setInterval(function () {
+            calculateGST()
+        }, 100)
+    </script>
+</body>
+
+</html>

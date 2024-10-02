@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        #count {
+            font-size: 50px;
+        }
+
+        button {
+            font-size: larger;
+            margin: 0px 15px;
+            background-color: rgb(255, 193, 6);
+            padding: 10px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+
+        }
+
+        #reset {
+            margin-top: 10px;
+        }
+        .box1 {
+            margin:15px;
+        }
+
+        input {
+            width: 50px;
+            height: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Counter App</h1>
+    <!-- Structure -->
+
+    <div class="box">
+
+        <span id="count">0</span>
+
+        <div class="box1">
+            <button id="subtract" onclick="addEventListener(e)">-</button>
+            <button id="add" onclick="addEventListener(e)">+</button>
+        </div>
+        
+        <label for="" aria-placeholder="">Increment/Decrement : </label>
+        <input id="change" type="number" placeholder="Enter the Number" min="1" max="20" value="1">
+    </div>
+    <button id="reset">Reset</button>
+
+
+    <!-- Logic is here -->
+
+    <script>
+
+        let count = document.getElementById("count")
+        let subtract = document.getElementById("subtract")
+        let add = document.getElementById("add")
+        let changeBy = document.getElementById('change')
+        let reset = document.getElementById("reset")
+
+        subtract.addEventListener('click', () => {
+            let countValue = parseInt(count.innerText);
+            let changeByValue = parseInt(changeBy.value)
+            count.innerText = countValue - changeByValue
+        })
+
+        add.addEventListener('click', () => {
+            let countValue = parseInt(count.innerText);
+            let changeByValue = parseInt(changeBy.value)
+            count.innerText = countValue + changeByValue
+        })
+
+        reset.addEventListener('click', () => {
+            count.innerText = 0
+          
+        })
+
+
+    </script>
+</body>
+
+</html>

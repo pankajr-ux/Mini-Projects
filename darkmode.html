@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <style>
+        * {
+
+            padding: 5px;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+        }
+
+        .dark {
+            background-color: rgb(22, 22, 22);
+            color: antiquewhite;
+        }
+        body {
+            background-color: rgb(221, 221, 221);
+            color:  rgb(22, 22, 22);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .container {
+
+            margin: 10px;
+            border: 2px solid rgb(38, 41, 8);
+        }
+    </style>
+
+</head>
+
+<body >
+
+    <!-- Structure -->
+
+    <div>
+        <label for="full-dark-mode">Dark Mode:</label>
+        <input type="checkbox" id="full-dark-mode">
+    </div>
+    <h1>The entire page color theme is controlled by CSS an Javascript.</h1>
+   
+    <div class="container">
+        <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto labore accusamus aperiam.</h2>
+    </div>
+
+    <!-- Logic is here -->
+
+    <script>
+
+        const fullDarkModeCheckbox = document.querySelector('#full-dark-mode')
+
+        fullDarkModeCheckbox.addEventListener('change', (e) => {
+            if (fullDarkModeCheckbox.checked) {
+                document.body.classList.add('dark')
+            } else {
+                document.body.classList.remove('dark')
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
